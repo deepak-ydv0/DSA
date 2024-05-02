@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myText" value="ram">
+    <button id="pushBtn" onclick="pushVal()">pushBtn</button>
+    <button id="popBtn" onclick="popVal()">popBtn</button>
+    <button id="displayBtn" onclick="displayVal()">displayBtn</button>
+
+    <script>
+      let data = [];
+
+      let currentSize = data.length;
+      let max = 5;
+      let newPushVal = document.getElementById("myText").value;
+
+      function pushVal() {
+        // console.log(newPushVal);
+        if (currentSize < max) {
+          data[currentSize] = newPushVal;
+          currentSize++;
+          console.log(data);
+        } else {
+          alert(`stack is full ${newPushVal}`);
+        }
+      }
+
+      function popVal() {
+        if (currentSize <= 0) {
+          alert("Stack is empty");
+        } else {
+          currentSize = currentSize - 1;
+          data.length = currentSize;
+          console.log(data);
+        }
+      }
+
+      function displayVal() {
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i]);
+        }
+      }
+    </script>
+  </body>
+</html>
